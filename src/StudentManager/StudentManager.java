@@ -17,7 +17,8 @@ public class StudentManager {
             System.out.print("\n4. Xoa Sinh vien ID");
             System.out.print("\n5. Them Sinh Vien");
             System.out.print("\n6. Sua thong tin sinh vien");
-            System.out.print("\n7. Exit");
+            System.out.print("\n7. Hien thi sinh vien duoc hoc bong");
+            System.out.print("\n8. Hien thi cac ban nu");
             System.out.print("\nselection: ");
             Scanner scanner = new Scanner(System.in);
             selection = scanner.nextInt();
@@ -91,15 +92,32 @@ public class StudentManager {
                     }
                     break;
                 case 7:
+                    int count = 0;
+                    int GPA = 8;
+                    for (int i = 0; i < studentsList.size(); i++) {
+                        if (studentsList.get(i).getGPA() > GPA) {
+                            count++;
+                            studentsList.get(i).ShowInFor();
+                        }
+                    }
+                    break;
+                case 8:
+                    String gender = "nu";
+                    for (int i = 0; i < studentsList.size(); i++) {
+                        if (studentsList.get(i).getGender().equals(gender)) {
+                            studentsList.get(i).ShowInFor();
+                        }
+                    }
+                    break;
+                case 9:
                     System.exit(1);
+
                 default:
                     System.err.print("xin moi nhap lai\n");
 
 
             }
 
-        } while (selection != 8);
-
-
+        } while (selection != 10);
     }
 }
